@@ -11,26 +11,18 @@ include_directories(${Boost_INCLUDE_DIRS})
 
 find_package( Boost COMPONENTS unit_test_framework REQUIRED )
 
-target_link_libraries( mainApp ${Boost_LIBRARIES} )
+add_executable(tests version_test.cpp lib.cpp   )
 
-#set_target_properties(Lesson_1 PROPERTIES
-#    COMPILE_DEFINITIONS BOOST_TEST_DYN_LINK
-#    INCLUDE_DIRECTORIES ${Boost_INCLUDE_DIR}
-#)
+include_directories(${Boost_INCLUDE_DIRS})
+target_link_libraries( tests ${Boost_LIBRARIES} )
+
+find_package( Boost COMPONENTS unit_test_framework REQUIRED )
+
+set_target_properties(tests PROPERTIES
+    COMPILE_DEFINITIONS BOOST_TEST_DYN_LINK
+    INCLUDE_DIRECTORIES ${Boost_INCLUDE_DIR}
+)
 
 enable_testing()
-add_test(helloworld_tests test_version)
 
-
-#add_executable(tests version_test.cpp lib.cpp   )
-
-#include_directories(${Boost_INCLUDE_DIRS})
-#target_link_libraries( tests ${Boost_LIBRARIES} )
-
-#find_package( Boost COMPONENTS unit_test_framework REQUIRED )
-
-#set_target_properties(tests PROPERTIES
-#    COMPILE_DEFINITIONS BOOST_TEST_DYN_LINK
-#    INCLUDE_DIRECTORIES ${Boost_INCLUDE_DIR}
-#)
-
+add_test(helloworld_tests tests)
