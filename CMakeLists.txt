@@ -1,9 +1,10 @@
 cmake_minimum_required(VERSION 3.5)
 
-project(Lesson_1 LANGUAGES CXX)
+project(Lesson_1 VERSION 0.0.1)
 
 set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(COMPILE_OPTIONS "-Wpedantic;-Wall;-Wextra" )
 
 add_executable(mainApp main.cpp lib.cpp)
 
@@ -23,6 +24,15 @@ set_target_properties(tests PROPERTIES
     INCLUDE_DIRECTORIES ${Boost_INCLUDE_DIR}
 )
 
-enable_testing()
+install(TARGETS mainApp RUNTIME DESTINATION bin)
+set(CPACK_GENERATOR DEB)
+set(CPACK_PACKAGE_VERSION_MAJOR "${PROJECT_VERSION_MAJOR}")
+set(CPACK_PACKAGE_VERSION_MINOR "${PROJECT_VERSION_MINOR}")
+set(CPACK_PACKAGE_VERSION_PATCH "${PROJECT_VERSION_PATCH}")
+set(CPACK_PACKAGE_CONTACT yellow_coffee@mail.com)
+set(CPACK_DEBIAN_PACKAGE_SHLIBDEPS ON)
 
-add_test(helloworld_tests tests)
+include(CPack)
+
+enable_testing()
+add_test(mainApp_tests tests)
