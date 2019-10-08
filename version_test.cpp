@@ -8,7 +8,7 @@ BOOST_AUTO_TEST_SUITE( lib_test_suite )
 
 BOOST_AUTO_TEST_CASE( version_test )
 {
-    BOOST_CHECK(version() > 0);
+    BOOST_CHECK(version() < 0);
 }
 
 BOOST_AUTO_TEST_SUITE_END()
