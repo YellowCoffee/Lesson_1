@@ -1,7 +1,7 @@
 #include "lib.h"
 
-int version() {
+#include "version.h"
 
-    // TODO: Need realizaton!
-    return 1;
+int version() {
+    return PROJECT_VERSION_PATCH;
 }
