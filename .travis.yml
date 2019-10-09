@@ -14,4 +14,4 @@ deploy:
   provider: script
   skip_cleanup: true
   script:  
-  - curl -T Lesson_1-0.0.$TRAVIS_BUILD_NUMBER-Linux.deb -uyellowcoffee:1fc1f1d87c4866d5096f14117fea69c4db5a9762 "https://api.bintray.com/content/yellowcoffee/Lesson_1/Lesson_1/0.0.$TRAVIS_BUILD_NUMBER/Lesson_1-0.0.$TRAVIS_BUILD_NUMBER-Linux.deb;deb_distribution=xenial;deb_component=main;deb_architecture=amd64;publish=1"
+  - curl -T Lesson_1-0.0.$TRAVIS_BUILD_NUMBER-Linux.deb -uyellowcoffee:1fc1f1d87c4866d5096f14117fea69c4db5a9762 "https://api.bintray.com/content/yellowcoffee/Lesson_1/Lesson_1/$TRAVIS_BUILD_NUMBER/Lesson_1-0.0.$TRAVIS_BUILD_NUMBER-Linux.deb;deb_distribution=xenial;deb_component=main;deb_architecture=amd64;publish=1"
