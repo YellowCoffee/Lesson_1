@@ -1,13 +1,13 @@
 cmake_minimum_required(VERSION 3.5)
 
 
-project(Lesson_1 VERSION 0.0.$ENV{TRAVIS_BUILD_NUMBER})
+project(helloworld VERSION 0.0.$ENV{TRAVIS_BUILD_NUMBER})
 
 set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(COMPILE_OPTIONS "-Wpedantic;-Wall;-Wextra" )
 
-add_executable(mainApp main.cpp lib.cpp)
+add_executable(helloworld main.cpp lib.cpp)
 
 configure_file(version.h.in ${PROJECT_SOURCE_DIR}/version.h)
 
@@ -27,7 +27,7 @@ set_target_properties(tests PROPERTIES
     INCLUDE_DIRECTORIES ${Boost_INCLUDE_DIR}
 )
 
-install(TARGETS mainApp RUNTIME DESTINATION bin)
+install(TARGETS helloworld RUNTIME DESTINATION bin)
 set(CPACK_GENERATOR DEB)
 set(CPACK_PACKAGE_VERSION_MAJOR "${PROJECT_VERSION_MAJOR}")
 set(CPACK_PACKAGE_VERSION_MINOR "${PROJECT_VERSION_MINOR}")
